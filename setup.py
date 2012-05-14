@@ -7,7 +7,7 @@ setup(name='django-cuser',
     author='Alireza Savand',
     author_email='alireza.savand@gmail.com',
     url='https://github.com/Alir3z4/django-cuser',
-    packages=find_packages(exclude=["example"]),
+    packages=find_packages(exclude=["django_cuser"]),
     install_requires=['django>=1.2'],
     classifiers=[
         "Framework :: Django",
