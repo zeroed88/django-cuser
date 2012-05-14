@@ -14,7 +14,7 @@ I know sounds fantastic ;)
 Installing
 ==========
 
-djang-cuser is also avilable at http://pypi.python.org/pypi/django-cuser/1.0
+djang-cuser is also avilable at http://pypi.python.org/pypi/django-cuser
 So it can be install it by pip or easy_install::
 
     $ python pip install django-cuser
