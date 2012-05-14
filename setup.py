@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
-setup(name='django-echelon',
+setup(name='django-cuser',
     version=".".join(map(str, __import__("echelon").__version__)),
-    description='Middleware to make user information always available and to automatically log changes',
-    author='Dennis Kaarsemaker',
-    author_email='dennis@kaarsemaker.net',
-    url='http://github.com/seveas/django-echelon',
+    description='Middleware to make user information always available.',
+    author='Alireza Savand',
+    author_email='alireza.savand@gmail.com',
+    url='https://github.com/Alir3z4/django-cuser',
     packages=find_packages(exclude=["example"]),
     classifiers=[
         "Framework :: Django",
