@@ -12,7 +12,15 @@ I know sounds fantastic ;)
 Installing
 ----------
 
-Install: python setup.py install
+djang-cuser is also avilable at http://pypi.python.org/pypi/django-cuser/1.0
+So it can be install it by pip or easy_install 
+              $ python pip install django-cuser
+
+Or you can grap the latest version tarball 
+              $ python setup.py install
+
+To enable django-cuser in your project
+
 - Add 'cuser' to INSTALLED_APPS in your settings.py
 - Add 'cuser.middleware.CuserMiddleware' to MIDDLEWARE_CLASSES after the
   authentication and session middleware
