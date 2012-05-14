@@ -1,5 +1,7 @@
 # Copyright (c) 2009-2011 Dennis Kaarsemaker <dennis@kaarsemaker.net>
 #               2011 Atamert Olcgen <muhuk@muhuk.com>
+#               2012 Alireza Savand <alireza.savand@gmail.com>
+#
 # Small piece of middleware to be able to access authentication data from
 # everywhere in the django code.
 #
@@ -30,22 +32,18 @@
 
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.db.models import SubfieldBase
-from django.db.models.fields import TextField
 from django.db.models.fields.related import ForeignKey, ManyToOneRel
-from echelon.middleware import EchelonMiddleware
-import pickle
+from cuser.middleware import CuserMiddleware
 
 
-if 'echelon' not in settings.INSTALLED_APPS:
-    raise ValueError("Echelon middleware is not enabled")
+if 'cuser' not in settings.INSTALLED_APPS:
+    raise ValueError("Cuser middleware is not enabled")
 
 
 # Register fields with south, if installed
 if 'south' in settings.INSTALLED_APPS:
     from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([], ["^echelon\.fields\.CurrentUserField"])
-    add_introspection_rules([], ["^echelon\.fields\.ChangelogField"])
+    add_introspection_rules([], ["^cuser\.fields\.CurrentUserField"])
 
 
 class CurrentUserField(ForeignKey):
@@ -62,22 +60,8 @@ class CurrentUserField(ForeignKey):
 
     def pre_save(self, model_instance, add):
         if add or not self.add_only:
-            user = EchelonMiddleware.get_user()
+            user = CuserMiddleware.get_user()
             if user:
                 setattr(model_instance, self.attname, user.pk)
                 return user.pk
         return super(CurrentUserField, self).pre_save(model_instance, add)
-
-
-class ChangelogField(TextField):
-    __metaclass__ = SubfieldBase
-    marker = '__Echelon_ChangelogField'
-
-    def to_python(self, value):
-        if isinstance(value, basestring):
-            if value.startswith(self.marker):
-                return pickle.loads(str(value[len(self.marker):]))
-        return value
-
-    def get_prep_value(self, value):
-        return self.marker + pickle.dumps(value, )
