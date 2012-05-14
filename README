@@ -6,11 +6,6 @@ Copyright (c) 2009-2011 Dennis Kaarsemaker <dennis@kaarsemaker.net>
 
 Overview
 --------
-
-cuser does what its name implies: it keeps an eye on users. It allows you to
-find out the current user from anywehere in your code and it tracks every
-action users do.
-
 cuser will bring you Current user of your django application from anywehere in your code.
 I know sounds fantastic ;)
 
