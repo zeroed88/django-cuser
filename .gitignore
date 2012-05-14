@@ -3,3 +3,6 @@ build
 dist
 *.egg-info
 .coverage
+.idea/
+django_cuser/
+manage.py
