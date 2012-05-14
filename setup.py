@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages
 
-setup(name='django-cuser',
+setup(
+    name='django-cuser',
     version=".".join(map(str, __import__("cuser").__version__)),
     description='Middleware to make user information always available.',
     long_description='README',
