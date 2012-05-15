@@ -59,7 +59,7 @@ yourself.
 cuser also provides a CurrentUserField, which can be used for auditing
 purposes. Use it as follows:
 
-from echelon.fields import CurrentUserField::
+from cuser.fields import CurrentUserField::
 
     class MyModel(models.Model):
         ....
