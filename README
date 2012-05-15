@@ -9,17 +9,17 @@ Overview
 =========
 
 cuser will bring you Current user of your django application from anywehere in your code.
-I know sounds fantastic ;)
+I know, sounds fantastic ;)
 
 Installing
 ==========
 
-djang-cuser is also avilable at http://pypi.python.org/pypi/django-cuser
+django-cuser is also avilable at http://pypi.python.org/pypi/django-cuser
 So it can be install it by pip or easy_install::
 
     $ python pip install django-cuser
 
-Or you can grap the latest version tarball::
+Or you can grab the latest version tarball::
 
     $ python setup.py install
 
