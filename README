@@ -56,7 +56,7 @@ The middleware automatically sets/deletes the current user for HTTP requests.
 For other uses (management commands, scripts), you will need to do this
 yourself.
 
-echelon also provides a CurrentUserField, which can be used for auditing
+cuser also provides a CurrentUserField, which can be used for auditing
 purposes. Use it as follows:
 
 from echelon.fields import CurrentUserField::
