@@ -1,5 +1,9 @@
+========================================================
 django-cuser - Take care of current user in silent way.
 ========================================================
+
+.. contents:: Table of contents
+
 
 Copyright (c) 
  * 2009-2011 Dennis Kaarsemaker <dennis@kaarsemaker.net>
@@ -7,13 +11,13 @@ Copyright (c)
  * 2012 Alireza Savand <alireza.savand@gmail.com>
 
 Overview
-=========
+--------
 
 cuser will bring you Current user of your django application from anywehere in your code.
 I know, sounds fantastic ;)
 
 Installing
-==========
+----------
 
 django-cuser is also avilable at http://pypi.python.org/pypi/django-cuser
 So it can be install it by pip or easy_install::
@@ -26,12 +30,12 @@ Or you can grab the latest version tarball::
 
 To enable django-cuser in your project
 
-* Add 'cuser' to INSTALLED_APPS in your settings.py
-* Add 'cuser.middleware.CuserMiddleware' to MIDDLEWARE_CLASSES after the
-  authentication and session middleware
+* Add ``cuser`` to ``INSTALLED_APPS`` in your ``settings.py``
+* Add ``cuser.middleware.CuserMiddleware`` to ``MIDDLEWARE_CLASSES`` after the
+  authentication and session middleware.
 
 Who is the current user
-=======================
+-----------------------
 
 To set/get the user info, there is the following API::
 
@@ -57,10 +61,14 @@ The middleware automatically sets/deletes the current user for HTTP requests.
 For other uses (management commands, scripts), you will need to do this
 yourself.
 
-cuser also provides a CurrentUserField, which can be used for auditing
+CurrentUserField
+-----------------
+
+``cuser`` also provides a ``CurrentUserField``, which can be used for auditing
 purposes. Use it as follows:
 
-from cuser.fields import CurrentUserField::
+from cuser.fields import CurrentUserField
+::
 
     class MyModel(models.Model):
         ....
@@ -68,5 +76,5 @@ from cuser.fields import CurrentUserField::
         last_editor = CurrentUserField(related_name="last_edited_mymodels")
         ...
 
-This field is a ForeignKey to the django.contrib.auth.models.User model and you
+This field is a ``ForeignKey`` to the ``django.contrib.auth.models.User`` model and you
 can treat it as such.
