@@ -33,9 +33,10 @@
 from django.conf import settings
 
 
-if hasattr(settings, 'AUTH_USER_MODEL'):
-    User = settings.AUTH_USER_MODEL
-else:
+try:
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+except ImportError:
     from django.contrib.auth.models import User
 
 
