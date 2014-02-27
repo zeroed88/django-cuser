@@ -31,7 +31,14 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from django.conf import settings
-from django.contrib.auth.models import User
+
+
+if hasattr(settings, 'AUTH_USER_MODEL'):
+    User = settings.AUTH_USER_MODEL
+else:
+    from django.contrib.auth.models import User
+
+
 from django.db.models.fields.related import ForeignKey, ManyToOneRel
 from cuser.middleware import CuserMiddleware
 
