@@ -4,7 +4,7 @@ setup(
     name='django-cuser',
     version=".".join(map(str, __import__("cuser").__version__)),
     description='Middleware to make user information always available.',
-    long_description=open('README').read(),
+    long_description=open('README.rst').read(),
     author='Alireza Savand',
     author_email='alireza.savand@gmail.com',
     url='https://github.com/Alir3z4/django-cuser',
