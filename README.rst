@@ -2,6 +2,10 @@
 django-cuser - Take care of current user in silent way.
 ========================================================
 
+.. image:: https://travis-ci.org/Alir3z4/django-cuser.png
+   :alt: travis-cli tests status for django-cuser
+   :target: https://travis-ci.org/Alir3z4/django-cuser
+
 .. contents:: Table of contents
 
 
