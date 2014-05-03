@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns
+from django.conf.urls import patterns
 from django.db import models
 from django.http import HttpResponse
 from django.test import TestCase
