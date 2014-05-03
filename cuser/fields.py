@@ -31,7 +31,15 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from django.conf import settings
-from django.contrib.auth.models import User
+
+
+try:
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+except ImportError:
+    from django.contrib.auth.models import User
+
+
 from django.db.models.fields.related import ForeignKey, ManyToOneRel
 from cuser.middleware import CuserMiddleware
 

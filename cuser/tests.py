@@ -34,7 +34,13 @@ from django.conf.urls.defaults import patterns
 from django.db import models
 from django.http import HttpResponse
 from django.test import TestCase
-from django.contrib.auth.models import User
+
+try:
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+except ImportError:
+    from django.contrib.auth.models import User
+
 from cuser.fields import CurrentUserField
 from cuser.middleware import CuserMiddleware
 
