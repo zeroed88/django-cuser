@@ -57,7 +57,7 @@ This will return some_user if there is no current user::
 
     user = CuserMiddleware.get_user(some_user)
 
-Forget the current user. It is always safe to call this, even if there is no urrent user::
+Forget the current user. It is always safe to call this, even if there is no current user::
 
     CuserMiddleware.del_user()
 
