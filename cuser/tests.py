@@ -30,6 +30,9 @@ def test_view(request):
     return HttpResponse(user and user.username or u"")
 
 
+class OtherUser(User):
+    pass
+
 class CuserTestCase(TestCase):
     urls = patterns('',
         (r"^test-view/", test_view, {}, "test-view"),
@@ -58,3 +61,9 @@ class CuserTestCase(TestCase):
         TestModel.objects.create(name="TEST")
         test_instance = TestModel.objects.get(name="TEST")
         self.assertEqual(test_instance.creator, None)
+
+
+class OtherUserTestCase(TestCase):
+    def test_current_user_field_can_have_other_user_class(self):
+        field = CurrentUserField(to=OtherUser)
+        self.assertIsInstance(field.rel.to(), OtherUser)

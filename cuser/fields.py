@@ -23,13 +23,14 @@ if 'south' in settings.INSTALLED_APPS:
 
 
 class CurrentUserField(ForeignKey):
-    def __init__(self, to_field=None, rel_class=ManyToOneRel, **kwargs):
+    def __init__(self, to_field=None, rel_class=ManyToOneRel, to=User,
+                 **kwargs):
         self.add_only = kwargs.pop('add_only', False)
         kwargs.update({
           'editable': False,
           'null': True,
           'rel_class': rel_class,
-          'to': User,
+          'to': to,
           'to_field': to_field,
         })
         super(CurrentUserField, self).__init__(**kwargs)
