@@ -9,3 +9,4 @@
 * Remove license header from files.
 * Add travis-ci testing ;).
 * Fix to make it compatible with django >= 1.5.
+* Add ability to specify user class
