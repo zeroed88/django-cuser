@@ -2,6 +2,7 @@ from django.conf.urls import patterns
 from django.db import models
 from django.http import HttpResponse
 from django.test import TestCase
+import sys
 
 try:
     from django.contrib.auth import get_user_model
@@ -43,10 +44,16 @@ class CuserTestCase(TestCase):
 
     def test_cuser_middleware(self):
         response = self.client.get("/test-view/")
-        self.assertEqual(response.content, u"")
+        if sys.version < '3':
+            self.assertEqual(response.content, "")
+        else:
+            self.assertEqual(response.content, b"")
         self.client.login(username="test", password="test")
         response = self.client.get("/test-view/")
-        self.assertEqual(response.content, u"test")
+        if sys.version < '3':
+            self.assertEqual(response.content, "test")
+        else:
+            self.assertEqual(response.content, b"test")
 
     def test_current_user_field(self):
         user = User.objects.get(username="test")

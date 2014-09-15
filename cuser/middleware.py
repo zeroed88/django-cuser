@@ -1,4 +1,5 @@
-import thread
+import threading
+
 try:
     from django.contrib.auth import get_user_model
     User = get_user_model()
@@ -35,20 +36,20 @@ class CuserMiddleware(object):
         """
         Retrieve user info
         """
-        return cls.__users.get(thread.get_ident(), default)
+        return cls.__users.get(threading.current_thread(), default)
 
     @classmethod
     def set_user(cls, user):
         """
         Store user info
         """
-        if isinstance(user, basestring):
+        if isinstance(user, str):
             user = User.objects.get(username=user)
-        cls.__users[thread.get_ident()] = user
+        cls.__users[threading.current_thread()] = user
 
     @classmethod
     def del_user(cls):
         """
         Delete user info
         """
-        cls.__users.pop(thread.get_ident(), None)
+        cls.__users.pop(threading.current_thread(), None)
