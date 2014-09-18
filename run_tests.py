@@ -1,6 +1,9 @@
 import os
 import sys
+import django
 from django.conf import settings
+
+DJANGO_VERSION = float('.'.join([str(i) for i in django.VERSION[0:2]]))
 
 DIR_NAME = os.path.dirname(__file__)
 settings.configure(
@@ -29,6 +32,11 @@ settings.configure(
 )
 
 from django.test.simple import DjangoTestSuiteRunner
+
+if DJANGO_VERSION >= 1.7:
+    django.setup()
+
+
 test_runner = DjangoTestSuiteRunner(verbosity=2)
 failures = test_runner.run_tests(['cuser', ])
 
