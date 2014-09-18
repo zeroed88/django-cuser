@@ -28,7 +28,7 @@ class TestModel2(models.Model):
 
 def test_view(request):
     user = CuserMiddleware.get_user()
-    return HttpResponse(user and user.username or u"")
+    return HttpResponse(user and user.username or "")
 
 
     pass
