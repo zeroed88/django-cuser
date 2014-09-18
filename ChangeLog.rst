@@ -1,3 +1,11 @@
+0000.0.00 0000-00-00
+===============
+----
+
+* Fix getting custom user model.
+* Django > 1.5 < 1.7 support.
+* Feature #8: Add Python 3 support. 
+
 2014.6.21 2014-06-21
 ===============
 ----
