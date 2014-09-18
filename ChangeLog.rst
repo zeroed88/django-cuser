@@ -4,7 +4,9 @@
 
 * Fix getting custom user model.
 * Django > 1.5 < 1.7 support.
-* Feature #8: Add Python 3 support. 
+* Feature #8: Add Python 3 support.
+* Fix #9: Django 1.7 compatibility for test suite.
+
 
 2014.6.21 2014-06-21
 ===============
