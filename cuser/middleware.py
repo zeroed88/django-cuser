@@ -1,9 +1,6 @@
 from __future__ import unicode_literals
 import threading
-from cuser.compat import  get_user_model
-
-
-User = get_user_model()
+from cuser.compat import User
 
 
 class CuserMiddleware(object):
