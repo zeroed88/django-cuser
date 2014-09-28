@@ -1,13 +1,4 @@
 from django.conf import settings
-
-
-try:
-    from django.contrib.auth import get_user_model
-    User = get_user_model()
-except ImportError:
-    from django.contrib.auth.models import User
-
-
 from django.db.models.fields.related import ForeignKey, ManyToOneRel
 from cuser.middleware import CuserMiddleware
 
@@ -23,7 +14,7 @@ if 'south' in settings.INSTALLED_APPS:
 
 
 class CurrentUserField(ForeignKey):
-    def __init__(self, to_field=None, rel_class=ManyToOneRel, to=User,
+    def __init__(self, to_field=None, rel_class=ManyToOneRel, to=settings.AUTH_USER_MODEL,
                  **kwargs):
         self.add_only = kwargs.pop('add_only', False)
         kwargs.update({
