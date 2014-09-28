@@ -15,6 +15,17 @@ Overview
 cuser will bring you Current user of your django application from anywhere in your code.
 I know, sounds fantastic ;)
 
+
+Supported Python versions
+-------------------------
+
+``django-cuser`` currently can be run on multiple python versions:
+
+* Python 2 (2.7)
+* Python 3 (3.2, 3.3, 3.4)
+* PyPy
+
+
 Installing
 ----------
 
