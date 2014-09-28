@@ -17,7 +17,7 @@ Copyright (c)
 Overview
 --------
 
-cuser will bring you Current user of your django application from anywehere in your code.
+cuser will bring you Current user of your django application from anywhere in your code.
 I know, sounds fantastic ;)
 
 Installing
