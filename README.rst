@@ -86,7 +86,7 @@ from cuser.fields import CurrentUserField
         last_editor = CurrentUserField(related_name="last_edited_mymodels")
         ...
 
-This field is a ``ForeignKey`` to the ``django.contrib.auth.models.User`` model and you
+This field is a ``ForeignKey`` to the ``settings.AUTH_USER_MODEL`` model and you
 can treat it as such.
 
 
