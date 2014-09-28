@@ -1,3 +1,13 @@
+2014.9.28 2014-09-28
+===============
+----
+
+* Fix #11: Import fails in Django 1.7.
+* Feature: Running test suite with travis on multiple Django versions.
+* Feature: Code cleanup and pep8.
+* Feature: Add ``Tests`` section to ``README.rst``.
+
+
 2014.9.19 2014-09-19
 ===============
 ----
