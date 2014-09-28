@@ -9,11 +9,6 @@ django-cuser - Take care of current user in silent way.
 .. contents:: Table of contents
 
 
-Copyright (c) 
- * 2009-2011 Dennis Kaarsemaker <dennis@kaarsemaker.net>
- * 2011 Atamert Ölçgun <muhuk@muhuk.com>
- * 2012, 2013, 2014 Alireza Savand <alireza.savand@gmail.com>
-
 Overview
 --------
 
