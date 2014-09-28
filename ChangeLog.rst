@@ -1,3 +1,8 @@
+2014.9.28 2014-09-28
+===============
+----
+
+* Feature: Running test suite with travis on multiple Django versions.
 2014.9.19 2014-09-19
 ===============
 ----
