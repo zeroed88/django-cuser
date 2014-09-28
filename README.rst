@@ -88,3 +88,17 @@ from cuser.fields import CurrentUserField
 
 This field is a ``ForeignKey`` to the ``django.contrib.auth.models.User`` model and you
 can treat it as such.
+
+
+Tests
+------
+
+``django-cuser`` has been tested Django 1.6 and later. To run the the tests:
+
+::
+
+   $ python run_tests.py
+
+It's also available on travis-ci:
+
+https://travis-ci.org/Alir3z4/django-cuser/
