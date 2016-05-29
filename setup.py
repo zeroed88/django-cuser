@@ -9,7 +9,7 @@ setup(
     author_email='alireza.savand@gmail.com',
     url='https://github.com/Alir3z4/django-cuser',
     packages=find_packages(exclude=["django_cuser"]),
-    install_requires=['Django>=1.5'],
+    install_requires=['Django>=1.8'],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Development Status :: 6 - Mature",
