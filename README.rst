@@ -1,10 +1,46 @@
-========================================================
+=======================================================
 django-cuser - Take care of current user in silent way.
-========================================================
+=======================================================
 
 .. image:: https://travis-ci.org/Alir3z4/django-cuser.png
    :alt: travis-cli tests status for django-cuser
    :target: https://travis-ci.org/Alir3z4/django-cuser
+
+.. image:: http://badge.kloud51.com/pypi/w/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI Wheel
+
+.. image:: http://badge.kloud51.com/pypi/s/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI Status
+
+.. image:: http://badge.kloud51.com/pypi/l/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI License
+
+.. image:: http://badge.kloud51.com/pypi/f/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI Format
+
+.. image:: http://badge.kloud51.com/pypi/p/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI Py_versions
+
+.. image:: http://badge.kloud51.com/pypi/d/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI Downloads
+
+.. image:: http://badge.kloud51.com/pypi/i/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI Implementation
+
+.. image:: http://badge.kloud51.com/pypi/v/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI Version
+
+.. image:: http://badge.kloud51.com/pypi/e/django-cuser.svg
+    :target: https://pypi.python.org/pypi/django-cuser
+    :alt: PyPI Egg
 
 .. contents:: Table of contents
 
@@ -22,17 +58,17 @@ Supported Python versions
 ``django-cuser`` currently can be run on multiple python versions:
 
 * Python 2 (2.7)
-* Python 3 (3.2, 3.3, 3.4)
+* Python 3 (3.4, 3.5)
 * PyPy
 
 
 Installing
 ----------
 
-django-cuser is also avilable at http://pypi.python.org/pypi/django-cuser
+django-cuser is also available at http://pypi.python.org/pypi/django-cuser
 So it can be install it by pip or easy_install::
 
-    $ python pip install django-cuser
+    $ pip install django-cuser
 
 Or you can grab the latest version tarball::
 
@@ -72,7 +108,7 @@ For other uses (management commands, scripts), you will need to do this
 yourself.
 
 CurrentUserField
------------------
+----------------
 
 ``cuser`` also provides a ``CurrentUserField``, which can be used for auditing
 purposes. Use it as follows:
@@ -91,9 +127,9 @@ can treat it as such.
 
 
 Tests
-------
+-----
 
-``django-cuser`` has been tested Django 1.6 and later. To run the the tests:
+``django-cuser`` has been tested Django 1.8 and later. To run the the tests:
 
 ::
 
