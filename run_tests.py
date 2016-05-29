@@ -1,9 +1,8 @@
 import os
 import sys
+
 import django
 from django.conf import settings
-
-DJANGO_VERSION = float('.'.join([str(i) for i in django.VERSION[0:2]]))
 
 DIR_NAME = os.path.dirname(__file__)
 settings.configure(
@@ -14,30 +13,30 @@ settings.configure(
         }
     },
     INSTALLED_APPS=(
+        'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
-        'django.contrib.admin',
         'cuser',
     ),
-    ROOT_URLCONF='testss.CuserTestCase.urls',
+    ROOT_URLCONF='tests.CuserTestCase.urls',
     MIDDLEWARE_CLASSES = [
-        'django.middleware.common.CommonMiddleware',
+        'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
         'cuser.middleware.CuserMiddleware',
     ]
 )
 
-from django.test.simple import DjangoTestSuiteRunner
+from django.test.runner import DiscoverRunner
+django.setup()
 
-if DJANGO_VERSION >= 1.7:
-    django.setup()
-
-
-test_runner = DjangoTestSuiteRunner(verbosity=2)
+test_runner = DiscoverRunner(verbosity=2)
 failures = test_runner.run_tests(['cuser', ])
 
 if failures:
