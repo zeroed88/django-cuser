@@ -1,5 +1,8 @@
-2014.9.28 2014-09-28
-====================
+
+
+
+2014.9.28
+=========
 ----
 
 * Fix #11: Import fails in Django 1.7.
@@ -9,8 +12,8 @@
 * Feature: Add ``Supported Python versions``section to ``README.rst``.
 
 
-2014.9.19 2014-09-19
-====================
+2014.9.19
+=========
 ----
 
 * Fix getting custom user model.
@@ -20,8 +23,8 @@
 * Feature: Add pypy support.
 
 
-2014.6.21 2014-06-21
-====================
+2014.6.21
+=========
 ----
 
 * Add changelog.rst file.
