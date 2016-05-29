@@ -1,10 +1,12 @@
 import sys
 
-from django.conf.urls import patterns
+from django.conf.urls import url
 from django.contrib.auth import get_user_model
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.http import HttpResponse
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
+from django.views.generic import View
 
 from cuser.fields import CurrentUserField
 from cuser.middleware import CuserMiddleware
@@ -28,19 +30,21 @@ class TestModel2(models.Model):
     value = models.IntegerField()
 
 
-def test_view(request):
-    user = CuserMiddleware.get_user()
+class TestCUserView(View):
+    def get(self, request, *args, **kwargs):
+        user = CuserMiddleware.get_user()
+        return HttpResponse(user and user.username or "")
 
-    return HttpResponse(user and user.username or "")
 
 
 class CuserTestCase(TestCase):
-    urls = patterns(
-        '',
-        (r"^test-view/", test_view, {}, "test-view"),
+    urls = (
+        url(r"^test-view/", TestCUserView.as_view(), name="test-view"),
     )
 
     def setUp(self):
+        # Every test needs access to the request factory.
+        self.factory = RequestFactory()
         self.user = User.objects.create_user(
             username="test",
             email="test@example.com",
@@ -48,14 +52,16 @@ class CuserTestCase(TestCase):
         )
 
     def test_cuser_middleware(self):
-        response = self.client.get("/test-view/")
+        request = self.factory.get("/test-view/")
+        response = TestCUserView.as_view()(request)
+
         if sys.version < '3':
             self.assertEqual(response.content, "")
         else:
             self.assertEqual(response.content, b"")
 
         self.client.login(username="test", password="test")
-        response = self.client.get("/test-view/")
+        response = self.client.get(reverse('test-view'))
 
         if sys.version < '3':
             self.assertEqual(response.content, "test")
