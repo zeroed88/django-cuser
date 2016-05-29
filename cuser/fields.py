@@ -14,13 +14,11 @@ if 'south' in settings.INSTALLED_APPS:
 
 
 class CurrentUserField(ForeignKey):
-    def __init__(self, to_field=None, rel_class=ManyToOneRel,
-                 to=settings.AUTH_USER_MODEL, **kwargs):
+    def __init__(self, to_field=None, to=settings.AUTH_USER_MODEL, **kwargs):
         self.add_only = kwargs.pop('add_only', False)
         kwargs.update({
             'editable': False,
             'null': True,
-            'rel_class': rel_class,
             'to': to,
             'to_field': to_field,
         })
