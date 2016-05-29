@@ -1,3 +1,9 @@
+2016.5.29
+=========
+
+* Drop Python 3.2, Python 3.3 capability.
+* Support Django +1.8 version only.
+* Fix: Test runner and tests with newer syntax and Django versions.
 
 
 
