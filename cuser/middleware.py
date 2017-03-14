@@ -9,8 +9,6 @@ except ImportError:  # Django < 1.10
     MiddlewareMixin = object
 
 
-
-
 class CuserMiddleware(MiddlewareMixin):
     """
     Always have access to the current user
