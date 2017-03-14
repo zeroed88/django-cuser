@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from .testapp.tests import TestCUserView
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+        url(r"^test-view/", TestCUserView.as_view(), name="test-view"),
 ]

@@ -8,26 +8,11 @@ from django.http import HttpResponse
 from django.test import TestCase, RequestFactory
 from django.views.generic import View
 
-from cuser.fields import CurrentUserField
 from cuser.middleware import CuserMiddleware
+from .models import TestModel, TestModel2
 
 
 User = get_user_model()
-
-
-class TestModel(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    creator = CurrentUserField(
-        add_only=True,
-        blank=True,
-        null=True,
-        related_name="tests_created"
-    )
-
-
-class TestModel2(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    value = models.IntegerField()
 
 
 class TestCUserView(View):
@@ -35,12 +20,7 @@ class TestCUserView(View):
         user = CuserMiddleware.get_user()
         return HttpResponse(user and user.username or "")
 
-
-
 class CuserTestCase(TestCase):
-    urls = (
-        url(r"^test-view/", TestCUserView.as_view(), name="test-view"),
-    )
 
     def setUp(self):
         # Every test needs access to the request factory.

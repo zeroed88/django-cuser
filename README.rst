@@ -133,7 +133,7 @@ Tests
 
 ::
 
-   $ python run_tests.py
+   $ python manage.py test -v 2
 
 It's also available on travis-ci:
 
