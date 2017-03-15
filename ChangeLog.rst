@@ -1,3 +1,10 @@
+2017.3.14
+=========
+
+* Add support to new Django 1.10 Middleware
+* refactoring test suite
+
+
 2016.5.29
 =========
 

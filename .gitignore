@@ -6,4 +6,3 @@ dist
 .idea/
 .ropeproject/
 django_cuser/
-manage.py

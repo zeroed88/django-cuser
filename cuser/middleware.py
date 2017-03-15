@@ -2,8 +2,14 @@ from __future__ import unicode_literals
 import threading
 from cuser.compat import User
 
+try:
+    from django.utils.deprecation import MiddlewareMixin
+except ImportError:  # Django < 1.10
+    # Works perfectly for everyone using MIDDLEWARE_CLASSES
+    MiddlewareMixin = object
 
-class CuserMiddleware(object):
+
+class CuserMiddleware(MiddlewareMixin):
     """
     Always have access to the current user
     """
