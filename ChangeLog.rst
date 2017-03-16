@@ -1,8 +1,9 @@
-2017.3.14
+2017.3.16
 =========
 
 * Add support to new Django 1.10 Middleware
 * refactoring test suite
+* Supporting Universal Wheels, eggs and cheese.
 
 
 2016.5.29
