@@ -16,13 +16,14 @@ if 'south' in settings.INSTALLED_APPS:
 class CurrentUserField(ForeignKey):
     def __init__(self, to_field=None, to=settings.AUTH_USER_MODEL, **kwargs):
         self.add_only = kwargs.pop('add_only', False)
+        on_delete = kwargs.pop('on_delete')
         kwargs.update({
             'editable': False,
             'null': True,
             'to': to,
             'to_field': to_field,
         })
-        super(CurrentUserField, self).__init__(**kwargs)
+        super(CurrentUserField, self).__init__(on_delete=on_delete, **kwargs)
 
     def pre_save(self, model_instance, add):
         if add or not self.add_only:
