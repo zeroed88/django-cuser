@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.db import models
 from django.db.models.fields.related import ForeignKey, ManyToOneRel
 from cuser.middleware import CuserMiddleware
 
@@ -16,7 +17,7 @@ if 'south' in settings.INSTALLED_APPS:
 class CurrentUserField(ForeignKey):
     def __init__(self, to_field=None, to=settings.AUTH_USER_MODEL, **kwargs):
         self.add_only = kwargs.pop('add_only', False)
-        on_delete = kwargs.pop('on_delete')
+        on_delete = kwargs.pop('on_delete', models.PROTECT)
         kwargs.update({
             'editable': False,
             'null': True,
